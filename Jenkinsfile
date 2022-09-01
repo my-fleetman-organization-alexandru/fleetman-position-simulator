@@ -25,6 +25,7 @@ pipeline {
 
       stage('Build and Push Image') {
          steps {
+           sh 'docker --version'
            sh 'docker image build -t ${REPOSITORY_TAG} .'
          }
       }
