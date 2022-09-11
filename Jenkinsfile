@@ -18,9 +18,15 @@ pipeline {
          }
       }
       stage('Build') {
-         steps {
+        agent {
+            docker {
+                image 'myjenkins:4'
+                reuseNode true
+            }
+        }
+        steps {
             sh '''mvn clean package'''
-         }
+        }
       }
 
       stage('Build and Push Image') {
