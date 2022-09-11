@@ -1,5 +1,5 @@
 pipeline {
-   agent any
+   agent { label 'jenkins-slave' }
 
    environment {
      // You must set the following environment variables
